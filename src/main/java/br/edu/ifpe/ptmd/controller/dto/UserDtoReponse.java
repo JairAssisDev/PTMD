@@ -1,4 +1,5 @@
 package br.edu.ifpe.ptmd.controller.dto;
+import br.edu.ifpe.ptmd.model.AcessLevel;
 import lombok.AllArgsConstructor;
 
 import java.util.UUID;
@@ -11,4 +12,6 @@ public class UserDtoReponse {
     public UUID userId;
 
     public String token;
+
+    public AcessLevel accessLevel;
 }

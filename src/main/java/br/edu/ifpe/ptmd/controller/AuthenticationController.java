@@ -29,7 +29,7 @@ public class AuthenticationController {
         var auth = this.authenticationManager.authenticate(userNamePassword);
         User user =(User)auth.getPrincipal();
         var toker = tokenService.generateToken(user);
-        UserDtoReponse userDto = new UserDtoReponse(user.getUsername(),user.getId(),toker);
+        UserDtoReponse userDto = new UserDtoReponse(user.getUsername(),user.getId(),toker,user.getAcessLevel());
         return ResponseEntity.ok(userDto);
     }
 
