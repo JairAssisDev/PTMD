@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("register")
+@RequestMapping("manager")
 @Tag(name = "Manager")
 public class ManagerController {
 
@@ -51,7 +51,7 @@ public class ManagerController {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         request.setPassword(new BCryptPasswordEncoder().encode(request.getPassword()));
         try {
-            doctorService.save(request);
+            managerService.save(request);
         }
         catch (Exception e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
