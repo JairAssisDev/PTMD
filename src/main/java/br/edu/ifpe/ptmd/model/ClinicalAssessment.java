@@ -12,22 +12,28 @@ import java.util.UUID;
 @Setter
 @NoArgsConstructor
 public class ClinicalAssessment {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @OneToOne
     private Doctor doctor;
-    @OneToOne
-    private Patient patient;
 
     @Column(nullable = false)
-    private String imagePath;
+    private String nome;
+
+    @Column(nullable = false, unique = true)
+    private String cpf;
+
+    @Lob
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String imageBase64;
 
     @Column(nullable = false)
-    private String classification;
+    private Classification classification;
 
     @Column(nullable = false)
-    private String classificationMultiClass;
+    private ClassificationMultiClass classificationMultiClass;
 
     @Column(nullable = false)
     private String binaryPredictions;
@@ -37,5 +43,4 @@ public class ClinicalAssessment {
 
     @Column(nullable = false)
     private String finalDiagnosis;
-
 }
